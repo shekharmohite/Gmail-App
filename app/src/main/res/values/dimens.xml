@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="sender_image_w">48dp</dimen>
+    <dimen name="sender_image_h">48dp</dimen>
+    <dimen name="padding_7">7dp</dimen>
+
+</resources>

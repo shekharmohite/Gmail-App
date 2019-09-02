@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.gmail"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.appcompat:appcompat:$rootProject.app_compat"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintlayout"
+    testImplementation "junit:junit:$rootProject.junit"
+    androidTestImplementation "androidx.test:runner:$rootProject.test_runner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espresso"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerview"
+
+    // Dependency for Google Sign-In
+    implementation "com.google.android.gms:play-services-auth:$rootProject.play_services_auth"
+
+    implementation "com.google.api-client:google-api-client-android:$rootProject.client_android"
+    implementation "com.google.oauth-client:google-oauth-client-jetty:$rootProject.oauth_client_jetty"
+    implementation "com.google.apis:google-api-services-gmail:$rootProject.gmail_api"
+
+}

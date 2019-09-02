@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/dialog_holo_light_frame">
+
+        <TextView
+            android:id="@+id/tv_sender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginBottom="@dimen/margin_8"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{sender}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_18"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_subject"
+            app:layout_constraintEnd_toStartOf="@+id/tv_date"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_sender_image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/tv_subject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8"
+            android:layout_marginEnd="@dimen/margin_8"
+            android:layout_marginBottom="@dimen/margin_8"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{subject}"
+            android:textSize="@dimen/text_size_14"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_sender_image"
+            app:layout_constraintTop_toBottomOf="@id/tv_sender"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            set_date="@{date}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8"
+            android:layout_marginEnd="@dimen/margin_8"
+            android:layout_marginBottom="@dimen/margin_8"
+            android:gravity="end"
+            android:textSize="@dimen/text_size_14"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/tv_subject"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_sender"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_sender_image"
+            android:layout_width="@dimen/sender_image_w"
+            android:layout_height="@dimen/sender_image_h"
+            android:layout_marginStart="@dimen/margin_8"
+            android:background="@drawable/ic_circle_bg"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="@{String.valueOf(sender.charAt(0))}"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_subject"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="sender"
+            type="String" />
+
+        <variable
+            name="subject"
+            type="String" />
+
+        <variable
+            name="date"
+            type="Long" />
+
+    </data>
+
+</layout>
