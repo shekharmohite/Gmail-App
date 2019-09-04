@@ -89,13 +89,14 @@ public class EmailInteractor implements IInteractor {
         protected void onPostExecute(ListMessagesResponse listMessagesResponse) {
             super.onPostExecute(listMessagesResponse);
 
-            if (context.get() != null) {
+            if (context.get() != null && listMessagesResponse != null) {
                 nextPage = listMessagesResponse.getNextPageToken();
                 List<Message> messages = listMessagesResponse.getMessages();
                 for (Message msg : messages) {
                     new GetMessagesById(context).execute(msg.getId());
                 }
-            }
+            }else
+                response.onFailure("Please try again...!!!");
         }
     }
 

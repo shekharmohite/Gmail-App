@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements IEventHandle {
         }
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestScopes(new Scope(GmailScopes.GMAIL_READONLY))
+                .requestScopes(new Scope(GmailScopes.MAIL_GOOGLE_COM))
                 .requestEmail()
                 .build();
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements IEventHandle {
 
         // Check if the user is already signed in and all required scopes are granted
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if (GoogleSignIn.hasPermissions(account, new Scope(GmailScopes.GMAIL_READONLY))) {
+        if (GoogleSignIn.hasPermissions(account, new Scope(GmailScopes.MAIL_GOOGLE_COM))) {
             mAccount = account.getAccount();
             accName = account.getDisplayName();
             replaceFragment(new InboxFragment());
